@@ -1,4 +1,4 @@
 # ToA Custom Presets
-Customize the names of your presets easy peasy.
+Customize the names of your presets easy peasy. Now with colours!
 
-![alt text](https://raw.githubusercontent.com/DenchyRS/custom-preset-names/master/custom%20toa.png)
+![img.png](img.png)
