@@ -55,7 +55,6 @@ public class ToACustomPresetsPlugin extends Plugin
 
 	private void updateTOAPresets()
 	{
-		System.out.println("called");
 		final Widget toaover = client.getWidget(774, 99);
 		final Widget toalistener = client.getWidget(774, 98);
 		final Widget[] toapresets = toaover.getChildren();
