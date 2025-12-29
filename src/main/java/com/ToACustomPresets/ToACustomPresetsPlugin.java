@@ -1,13 +1,13 @@
-package net.runelite.client.plugins.ToACustomPresets;
+package com.ToACustomPresets;
 
 import com.google.inject.Provides;
 import java.awt.Color;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
-import net.runelite.api.events.GameTick;
+import net.runelite.api.events.*;
 import net.runelite.api.gameval.InterfaceID;
-import net.runelite.api.widgets.Widget;
+import net.runelite.api.widgets.*;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -57,16 +57,12 @@ public class ToACustomPresetsPlugin extends Plugin
 	{
 		final Widget toaover = client.getWidget(774, 99);
 		final Widget toalistener = client.getWidget(774, 98);
-		if (toaover != null)
-		{
-			return;
-		}
 		final Widget[] toapresets = toaover.getChildren();
-		if (toalistener != null)
+		final Widget[] toalistenerAll = toalistener.getChildren();
+		if (toapresets == null || toalistenerAll == null)
 		{
 			return;
 		}
-		final Widget[] toalistenerAll = toalistener.getChildren();
 
 		String[] presetText = {
 			config.preset1(),
@@ -86,10 +82,6 @@ public class ToACustomPresetsPlugin extends Plugin
 
 		for (int i = 0; i < presetText.length; i++)
 		{
-			if (toapresets != null)
-			{
-				return;
-			}
 			if (toapresets[i] != null && !presetText[i].isEmpty())
 			{
 				toapresets[i].setText(presetText[i]);
@@ -97,11 +89,9 @@ public class ToACustomPresetsPlugin extends Plugin
 			}
 		}
 
-		assert toalistenerAll != null;
 		Object result = toalistenerAll[0].getOnOpListener();
 
 	}
 
 }
-
 
